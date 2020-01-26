@@ -1,5 +1,6 @@
 ﻿
 
+
 CREATE View [Random].[vw_ODI_Batting]
 As
 Select 
@@ -14,7 +15,7 @@ Case
 	When A.Id IN (7,20,26,37,39,45,52,59) Then 'SouthAfrica'
 	When A.Id IN (78) Then 'Bangladesh'
 	When A.Id IN (68,66,40,42) Then 'Zimbabwe'
-	Else 'NA'
+	Else 'Rest'
 End As Country,
 A.*
 from Random.ODI_Batting A
