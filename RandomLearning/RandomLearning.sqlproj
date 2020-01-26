@@ -57,5 +57,24 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Random\" />
+    <Folder Include="Random\Tables\" />
+    <Folder Include="Random\Views\" />
+    <Folder Include="Security\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\ProcessedFiles.sql" />
+    <Build Include="dbo\Tables\PathwayHistory.sql" />
+    <Build Include="dbo\Tables\FolderPath.sql" />
+    <Build Include="dbo\Tables\Aggregate.sql" />
+    <Build Include="Random\Tables\Age.sql" />
+    <Build Include="Random\Tables\TeamStats.sql" />
+    <Build Include="Random\Tables\DDMLearning.sql" />
+    <Build Include="Random\Tables\ODI_Batting.sql" />
+    <Build Include="Random\Views\vw_ODI_Batting.sql" />
+    <Build Include="Security\TestUser.sql" />
+    <Build Include="Security\Random.sql" />
   </ItemGroup>
 </Project>
