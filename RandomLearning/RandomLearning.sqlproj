@@ -76,5 +76,6 @@
     <Build Include="Random\Views\vw_ODI_Batting.sql" />
     <Build Include="Security\TestUser.sql" />
     <Build Include="Security\Random.sql" />
+    <Build Include="dbo\Tables\Exceptions.sql" />
   </ItemGroup>
 </Project>
