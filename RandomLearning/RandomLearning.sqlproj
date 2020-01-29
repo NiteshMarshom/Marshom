@@ -63,6 +63,8 @@
     <Folder Include="Random\Tables\" />
     <Folder Include="Random\Views\" />
     <Folder Include="Security\" />
+    <Folder Include="dbo\StoredProcedures" />
+    <Folder Include="PostDeployment" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\ProcessedFiles.sql" />
@@ -78,6 +80,12 @@
     <Build Include="Security\Random.sql" />
     <Build Include="dbo\Tables\Exceptions.sql" />
     <Build Include="dbo\Tables\TestResults.sql" />
-    <PostDeploy Include="dbo\Tables\PostDeployment.sql" />
+    <Build Include="dbo\StoredProcedures\LoadTestResults.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="PostDeployment\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PostDeployment\RunTest.sql" />
   </ItemGroup>
 </Project>
