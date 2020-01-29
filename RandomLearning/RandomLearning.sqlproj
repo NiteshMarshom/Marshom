@@ -77,5 +77,7 @@
     <Build Include="Security\TestUser.sql" />
     <Build Include="Security\Random.sql" />
     <Build Include="dbo\Tables\Exceptions.sql" />
+    <Build Include="dbo\Tables\TestResults.sql" />
+    <PostDeploy Include="dbo\Tables\PostDeployment.sql" />
   </ItemGroup>
 </Project>
