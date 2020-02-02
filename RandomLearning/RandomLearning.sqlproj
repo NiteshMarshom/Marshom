@@ -81,6 +81,7 @@
     <Build Include="dbo\Tables\Exceptions.sql" />
     <Build Include="dbo\Tables\TestResults.sql" />
     <Build Include="dbo\StoredProcedures\LoadTestResults.sql" />
+    <Build Include="dbo\Tables\ATPWinners.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PostDeployment\Script.PostDeployment.sql" />
