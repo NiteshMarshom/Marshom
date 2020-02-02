@@ -82,6 +82,7 @@
     <Build Include="dbo\Tables\TestResults.sql" />
     <Build Include="dbo\StoredProcedures\LoadTestResults.sql" />
     <Build Include="dbo\Tables\ATPWinners.sql" />
+    <Build Include="dbo\Tables\ATPWinnersLoadDetails.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PostDeployment\Script.PostDeployment.sql" />
