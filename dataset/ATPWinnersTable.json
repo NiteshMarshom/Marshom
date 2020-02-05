@@ -1,0 +1,40 @@
+{
+	"name": "ATPWinnersTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQLAzure",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Tournament_Name",
+				"type": "varchar"
+			},
+			{
+				"name": "Year",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Winner Last Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Champion",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ATPWinners"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
