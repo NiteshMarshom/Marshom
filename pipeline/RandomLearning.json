@@ -3,6 +3,25 @@
 	"properties": {
 		"activities": [
 			{
+				"name": "Foreachfile",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Getfilenames",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Getfilenames').output.childItems",
+						"type": "Expression"
+					}
+				}
+			},
+			{
 				"name": "Getfilenames",
 				"type": "GetMetadata",
 				"dependsOn": [],
@@ -30,11 +49,32 @@
 						"type": "DelimitedTextReadSettings"
 					}
 				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "fileName",
+					"value": "1"
+				}
+			},
+			{
+				"name": "Set variable2",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "fileName",
+					"value": "2"
+				}
 			}
 		],
-		"parameters": {
+		"variables": {
 			"fileName": {
-				"type": "string"
+				"type": "String",
+				"defaultValue": "1"
 			}
 		},
 		"annotations": []
