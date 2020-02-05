@@ -1,0 +1,89 @@
+{
+	"name": "Load ATP Tournament Winners",
+	"properties": {
+		"activities": [
+			{
+				"name": "GetMetadataOfATPWinnersFile",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "ATPWinners",
+						"type": "DatasetReference"
+					},
+					"fieldList": [
+						"itemName",
+						"lastModified"
+					],
+					"storeSettings": {
+						"type": "AzureBlobStorageReadSettings",
+						"recursive": true
+					},
+					"formatSettings": {
+						"type": "DelimitedTextReadSettings"
+					}
+				}
+			},
+			{
+				"name": "Is_File_ModifiedToday",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "GetMetadataOfATPWinnersFile",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@equals( activity('GetMetadataOfATPWinnersFile').output.lastModified , ''  )",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set test variable_copy1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Is_File_ModifiedToday",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "variabletest",
+					"value": {
+						"value": "@substring(activity('GetMetadataOfATPWinnersFile').output.lastModified , 0,10)",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"GetDataAfter": {
+				"type": "int",
+				"defaultValue": 1989
+			}
+		},
+		"variables": {
+			"variabletest": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
